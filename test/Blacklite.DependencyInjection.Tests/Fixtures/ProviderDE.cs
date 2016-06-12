@@ -1,0 +1,35 @@
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
+
+namespace DependencyInjection.Tests.Fixtures
+{
+    public interface IProviderD
+    {
+        int ItemA { get; }
+    }
+
+    public interface IProviderE
+    {
+        decimal ItemB { get; }
+    }
+
+    [ServiceDescriptor(Lifetime = ServiceLifetime.Scoped)]
+    class ProviderDE : IProviderD, IProviderE
+    {
+        public int ItemA
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public decimal ItemB
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+}

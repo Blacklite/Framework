@@ -1,0 +1,27 @@
+﻿{
+    "version": "1.0.0-*",
+
+    "dependencies": {
+        "Rx-Linq": "2.2.5",
+        "Blacklite.Abstractions": "1.0.0-*",
+        "Blacklite.Features.Abstractions": "1.0.0-*",
+        "Blacklite.Shared": "1.0.0-*",
+        "Microsoft.Extensions.Configuration": "1.0.0-rc2-final",
+        "Microsoft.Extensions.DependencyModel": "1.0.0-rc2-final",
+        "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc2-final"
+    },
+
+    "frameworks": {
+        "net451": { },
+        "netstandard1.3": {
+            "imports": [
+                "dotnet5.4",
+                "dnxcore50",
+                "portable-net45+win8"
+            ],
+            "dependencies": {
+                "NETStandard.Library": "1.5.0-rc2-24027"
+            }
+        }
+    }
+}
