@@ -1,0 +1,30 @@
+os: Visual Studio 2015 Preview
+
+nuget:
+  account_feed: false
+  project_feed: false
+  disable_publish_on_pr: true
+# Fix line endings in Windows. (runs before repo cloning)
+init:
+  - git config --global core.autocrlf input
+
+# this turns of AppVeyor automatic searching for test-assemblies, not the actual testing
+test: off
+
+build_script:
+  - "echo APPVEYOR: %APPVEYOR%"
+  - "echo APPVEYOR_REPO_TAG: %APPVEYOR_REPO_TAG%"
+  - "echo APPVEYOR_REPO_BRANCH: %APPVEYOR_REPO_BRANCH%"
+  - ps: .\build.ps1
+
+artifacts:
+  - path: artifacts\build\*.nupkg
+
+deploy:
+- provider: NuGet
+  server: https://www.myget.org/F/blacklite-vnext/
+  api_key:
+    secure: eoBrSWDtOXSxyUOoCSTyQCeDkvU18W67pE3w26viEUBRi1K4Tru0cTjUtDUB7l9V
+  skip_symbols: true
+  on:
+    branch: master
